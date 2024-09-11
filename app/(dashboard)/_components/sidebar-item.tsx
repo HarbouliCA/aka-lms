@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { LucideIcon } from "lucide-react";
-import { routeModule } from "next/dist/build/templates/app-page";
 import { usePathname, useRouter } from "next/navigation";
 
 interface SidebarItemProps{
