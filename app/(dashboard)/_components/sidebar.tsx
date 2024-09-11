@@ -3,7 +3,7 @@
 import Logo from "./logo";
 import { SidebarRoutes } from "./sidebar-routes";
 
-const Sidebar = () => {
+export const Sidebar = () => {
     return ( 
         <div className="h-full border-r flex flex-col">
             <div className="p-6">
@@ -13,7 +13,5 @@ const Sidebar = () => {
                 <SidebarRoutes />
             </div>
         </div>
-     );
-}
- 
-export default Sidebar;
+     )
+};

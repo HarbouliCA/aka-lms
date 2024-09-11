@@ -13,7 +13,7 @@ interface SidebarItemProps{
 export const SidebarItem = ({
     icon:Icon,
     label,
-    href,
+    href
 }:      SidebarItemProps) => {
     const pathname = usePathname();
     const router = useRouter();
@@ -46,6 +46,15 @@ export const SidebarItem = ({
                 />
                 {label}
             </div>
+            <div 
+                className={cn(
+                "ml-auto opacity-0 border-2 border-sky-700 h-full transition-all",
+                isActive && "opacity-100"
+
+                
+                )} />
+                
+            
             </button>
      );
 }
