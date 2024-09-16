@@ -56,7 +56,7 @@ const CreatePage = () => {
                     Name your course
                 </h1>
                 <p className="text-sm text-slate-600">
-                    What would you like to nae your course? 
+                    What would you like to name your course? 
                 </p>
                 <Form {...form}>
                     <form 
