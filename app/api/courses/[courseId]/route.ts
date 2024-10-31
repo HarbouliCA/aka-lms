@@ -41,17 +41,25 @@ const muxClient = new Mux({
 
         for (const chapter of course.chapters) {
             if (chapter.muxData?.assetId) {
-                await videoService.assets.delete(chapter.muxData.assetId)
+              try {
+                await videoService.assets.delete(chapter.muxData.assetId);
+              } catch (error) {
+                if ((error as { status?: number }).status === 404) {
+                  console.log(`Mux asset with ID ${chapter.muxData.assetId} not found, skipping deletion.`);
+                } else {
+                  throw error;
+                }
+              }
             }
-        }
+          }
 
-        const deetedCourse = await db.course.delete({
+        const detedCourse = await db.course.delete({
             where:{
                 id: params.courseId,
             },
         });
 
-        return NextResponse.json(deetedCourse);
+        return NextResponse.json(detedCourse);
 
     } catch (error){
         console.log(" [COURSE_ID_DELETE]", error);
