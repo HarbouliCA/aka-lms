@@ -147,6 +147,10 @@ export async function PATCH(
         test: false,
       });
 
+      if (!asset) {
+        return new NextResponse("Error creating asset", { status: 500 });
+      }
+
       await db.muxData.create({
         data: {
           chapterId: params.chapterId,
