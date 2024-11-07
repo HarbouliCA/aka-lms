@@ -43,19 +43,22 @@ export const VideoPlayer = ({
                 await axios.put(`/api/courses/${courseId}/chapters/${chapterId}/progress`, {
                     isCompleted: true,
                 });
-
+                
                 toast.success("Progress updated");
-                router.refresh();
+                
 
                 // Trigger confetti if there is no next chapter
                 if (!nextChapterId) {
+                    
                     console.log("No next chapter, triggering confetti");
+                    router.refresh();
                     confetti.onOpen();
                 } else {
                     // Ensure nextChapterId exists and redirect to the next chapter
                     console.log("Redirecting to next chapter:", nextChapterId); // Check if nextChapterId is correct
                     if (nextChapterId) {
                         await router.push(`/courses/${courseId}/chapters/${nextChapterId}`);
+                        router.refresh();
                         console.log("Redirect successful to next chapter.");
                     }
                 }

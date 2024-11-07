@@ -39,7 +39,7 @@ export const CourseProgressButton = ({
             });
 
             // Trigger confetti if all chapters are completed
-            if (!isCompleted && completedChapters + 1 === totalChapters) {
+            if (!isCompleted && !nextChapterId) {
                 confetti.onOpen();
             }
 
