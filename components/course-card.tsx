@@ -12,7 +12,7 @@ interface CourseCardProps {
     category: string;
     chaptersLength: number;
     price: number;
-    progress: number | null;
+    progress?: number | null;
 }
 
 export const CourseCard = ({
@@ -56,7 +56,7 @@ export const CourseCard = ({
                     <CourseProgress
                     size="sm"
                     variant={progress === 100 ? "success" : "default"}
-                    value={progress}
+                    value={progress ?? 0}
                     />
                  ): (
                     <p className="text-md md:text-sm font-medium text-slate-700">
